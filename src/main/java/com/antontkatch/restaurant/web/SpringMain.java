@@ -2,6 +2,7 @@ package com.antontkatch.restaurant.web;
 
 import com.antontkatch.restaurant.model.Dish;
 import com.antontkatch.restaurant.service.DishService;
+import com.antontkatch.restaurant.service.MenuService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Arrays;
@@ -29,6 +30,10 @@ public class SpringMain {
                 dish.setPrice(8.88);
                 dishService.create(dish, 100008);
                 System.out.println(dishService.getAll(100008));
+
+                MenuService menuService = appCtx.getBean(MenuService.class);
+                System.out.println(menuService.get(100006, 100003));
+
             }
         }
     }
