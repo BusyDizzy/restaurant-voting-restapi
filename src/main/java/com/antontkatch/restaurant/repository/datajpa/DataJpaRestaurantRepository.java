@@ -3,6 +3,7 @@ package com.antontkatch.restaurant.repository.datajpa;
 import com.antontkatch.restaurant.model.Restaurant;
 import com.antontkatch.restaurant.repository.RestaurantRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class DataJpaRestaurantRepository implements RestaurantRepository {
     }
 
     @Override
+    @Transactional
     public Restaurant save(Restaurant restaurant) {
         return crudRepository.save(restaurant);
     }

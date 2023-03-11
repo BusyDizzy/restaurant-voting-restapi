@@ -2,6 +2,7 @@ package com.antontkatch.restaurant.repository;
 
 import com.antontkatch.restaurant.model.Vote;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface VoteRepository {
@@ -15,4 +16,8 @@ public interface VoteRepository {
     List<Vote> getAllUserVotes(int userId);
 
     List<Vote> getAllRestaurantVotes(int restaurantId);
+
+    List<Vote> getAll(int restaurantId, LocalDate date);
+
+    List<Vote> getAllDailyVotes(LocalDate date);
 }

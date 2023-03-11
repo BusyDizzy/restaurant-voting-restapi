@@ -4,6 +4,7 @@ import com.antontkatch.restaurant.model.User;
 import com.antontkatch.restaurant.repository.UserRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class DataJpaUserRepository implements UserRepository {
     }
 
     @Override
+    @Transactional
     public User save(User user) {
         return crudUserRepository.save(user);
     }
@@ -41,5 +43,4 @@ public class DataJpaUserRepository implements UserRepository {
     public List<User> getAll() {
         return crudUserRepository.findAll(SORT_NAME_EMAIL);
     }
-
 }

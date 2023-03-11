@@ -3,6 +3,7 @@ package com.antontkatch.restaurant.repository.datajpa;
 import com.antontkatch.restaurant.model.Menu;
 import com.antontkatch.restaurant.repository.MenuRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class DataJpaMenuRepository implements MenuRepository {
     }
 
     @Override
+    @Transactional
     public Menu save(Menu menu, int restaurantId) {
         if (!menu.isNew() && get(menu.id(), restaurantId) == null) {
             return null;

@@ -21,12 +21,12 @@ public class Vote extends AbstractBaseEntity {
     @NotNull
     private LocalDate date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
     @NotNull
     private Restaurant restaurant;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     @NotNull
     private User user;
@@ -35,9 +35,9 @@ public class Vote extends AbstractBaseEntity {
     public String toString() {
         return "Vote{" +
                 "id=" + id +
-                "date=" + date +
-//                ", restaurant=" + restaurant +
-//                ", user=" + user +
+                ", date=" + date +
+                ", restaurant='" + restaurant.getName() + '\'' +
+                ", user='" + user.getName() + '\'' +
                 '}';
     }
 }

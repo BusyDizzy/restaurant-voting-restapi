@@ -3,10 +3,11 @@ package com.antontkatch.restaurant.web;
 import com.antontkatch.restaurant.model.Dish;
 import com.antontkatch.restaurant.service.DishService;
 import com.antontkatch.restaurant.service.MenuService;
+import com.antontkatch.restaurant.service.VoteService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.time.LocalDate;
 import java.util.Arrays;
-
 
 public class SpringMain {
     public static void main(String[] args) {
@@ -34,6 +35,11 @@ public class SpringMain {
                 MenuService menuService = appCtx.getBean(MenuService.class);
                 System.out.println(menuService.get(100006, 100003));
 
+                VoteService voteService = appCtx.getBean(VoteService.class);
+                System.out.println(voteService.getAll(100003, LocalDate.of(2023, 03, 06)));
+                System.out.println(voteService.getAllRestaurantVotes(100004));
+                System.out.println(voteService.getAllUserVotes(100000));
+                System.out.println(voteService.getAllDailyVotes(LocalDate.of(2023, 03, 06)));
             }
         }
     }

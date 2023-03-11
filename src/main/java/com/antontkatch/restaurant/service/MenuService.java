@@ -21,7 +21,6 @@ public class MenuService {
         return checkNotFoundWithId(repository.get(id, restaurantId), id);
     }
 
-
     public void delete(int id, int restaurantId) {
         checkNotFoundWithId(repository.delete(id, restaurantId), id);
     }
@@ -31,12 +30,12 @@ public class MenuService {
     }
 
     public void update(Menu menu, int restaurantId) {
-        Assert.notNull(menu, "dish must not be null");
+        Assert.notNull(menu, "menu must not be null");
         checkNotFoundWithId(repository.save(menu, restaurantId), menu.id());
     }
 
     public Menu create(Menu menu, int restaurantId) {
-        Assert.notNull(menu, "dish must not be null");
+        Assert.notNull(menu, "menu must not be null");
         return repository.save(menu, restaurantId);
     }
 }
